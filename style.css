@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+}
+
+
+.header-container {
+    height: 50px;
+    background-color: green;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.inicio {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
