@@ -1,3 +1,10 @@
+/*let $header = document.querySelector('#headerContainer')
+
+let $headerContainer = document.createElement('div');
+$header.classList.add('header-container')*/
+
+
+
 function renderData(productos) {
     let $container = document.querySelector('#characterContainer');
   
