@@ -1,50 +1,17 @@
-// Seleccionamos el Header
-let header = document.querySelector('header');
+const productos = [
+  { id: 1, nombre: "Rosa", imagen: "imagenes/rosa.png", descripcion: "Hermosa rosa roja, ideal para regalar.", precio: 15, stock: 15 },
 
-let divHeader = document.createElement('div');
-divHeader.classList.add('header-container');
+  { id: 2, nombre: "Lirio", imagen: "imagenes/lirio.avif", descripcion: "Elegante lirio blanco, perfecto para decorar.", precio: 20, stock: 10 },
 
-// Creamos los divs que va a tener el header y le ponemos una clase
-let divInicio = document.createElement('div');
-divInicio.classList.add('inicio');
+  { id: 3, nombre: "Orquídea", imagen: "imagenes/orquidea.webp", descripcion: "Exótica orquídea, un toque de distinción.", precio: 25, stock: 8 },
 
-let divLogos = document.createElement('div');
-divLogos.classList.add('logos');
+  { id: 4, nombre: "Margarita", imagen: "imagenes/margarita.png", descripcion: "Delicada margarita, símbolo de la primavera.", precio: 10, stock: 20 },
 
-let divGreenShop = document.createElement('div');
-divGreenShop.classList.add('green-shop');
-// Añademos los divs al Header
-divHeader.appendChild(divGreenShop);
-divHeader.appendChild(divInicio);
-divHeader.appendChild(divLogos);
+  { id: 5, nombre: "Tulipán", imagen: "imagenes/tulipán.webp", descripcion: "Colorido tulipán, disponible en varios colores.", precio: 12, stock: 18 },
 
-// Creamos un h2 y lo añadimos con su correspondiente div
-let h2GreenShop = document.createElement('h2');
-h2GreenShop.textContent = 'GreenShop';
-divGreenShop.appendChild(h2GreenShop)
+  { id: 6, nombre: "Girasol", imagen: "imagenes/girasol.png", descripcion: "Imponente girasol, ilumina cualquier espacio.", precio: 18, stock: 12 },
 
+  { id: 7, nombre: "Clavel", imagen: "imagenes/clavel.png", descripcion: "Clavel rojo, un clásico lleno de encanto.", precio: 8, stock: 25 },
 
-// Creamos los siguientes textos y lo añadimos al divInicio
-let inicio = document.createElement('h3');
-inicio.textContent = 'Inicio';
-divInicio.appendChild(inicio);
-
-let plantas = document.createElement('h3');
-plantas.textContent = 'Plantas';
-divInicio.appendChild(plantas);
-
-let blog = document.createElement('h3');
-blog.textContent = 'Blog';
-divInicio.appendChild(blog);
-
-let contacto = document.createElement('h3');
-contacto.textContent = 'Contacto';
-divInicio.appendChild(contacto);
-
-
-// Creamos los logos y lo añadimos al divLogos
-let h3GreenShop = document.createElement('img');
-h3GreenShop.textContent = 'Aqui hay que poner el logo';
-divLogos.appendChild(h3GreenShop)
-
-header.appendChild(divHeader);
+  { id: 8, nombre: "Lavanda", imagen: "imagenes/lavanda.avif", descripcion: "Relajante lavanda, ideal para aromaterapia.", precio: 14, stock: 15 },
+];

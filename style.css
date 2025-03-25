@@ -1,19 +1,82 @@
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-
-.header-container {
-    height: 50px;
-    background-color: green;
-    color: white;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+body {
+    background-color: #cfcfff;
 }
 
-.inicio {
+.container {
+    width: 70%;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    padding: 50px;
+}
+
+.character-pill {
+    width: 33%;
+    padding: 15px;
+}
+
+.character-body {
+    height: 400px;
+    width: 250px;
+    background-color: white;
+    transition: all 300ms;
+    border-radius: 5px;
+
+}
+
+.character-body:hover {
+    transform: scale(1.15);
+}
+
+.character-pill .character-body {
+    box-shadow: 3px 3px 13px 0px rgba(0,0,0,0.50);
+    height: 100%;
+}
+
+.character-header {
+    width: 100%;
+}
+
+.character-header img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 5px;
+}
+
+.character-content {
+   text-align: center;
+}
+
+.character-description {
+    margin-top: 20px;
+}
+
+.character-name {
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+.character-info {
+    width: 100%;
+    padding: 8px;
+}
+
+.character-info-content {
+    padding: 3px;
+    font-weight: bold;
+}
+
+.btn-carrito {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #99ff66;
 }
