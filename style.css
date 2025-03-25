@@ -8,6 +8,66 @@ body {
     background-color: #cfcfff;
 }
 
+.header-container {
+    background-color: #33CC33;
+    color: white;
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo {
+    width: 25%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.information-container {
+    width: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.information-container .information a {
+    color: white;
+    text-decoration: none;
+}
+
+.logos-header {
+    width: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.logos-header button {
+    background-color: #33CC33;
+    border: none;
+}
+
+.logos-header button:hover{
+    cursor: pointer;
+}
+
+.logos-header img {
+    height: 20px;
+    object-fit: contain;
+    object-position: center;
+}
+
+
+
+
+
+
+
+
+
 .container {
     width: 70%;
     margin: 0 auto;
@@ -79,4 +139,10 @@ body {
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: #99ff66;
+    border-radius: 10px;
+    border: none;
+}
+
+.btn-carrito:hover{
+    cursor: pointer;
 }
