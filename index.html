@@ -9,54 +9,52 @@
 <body>
     <header>
         <div id="headerContainer" class="header-container">
-            <div>
-                <div class="logo">
-                <p>GreenShop</p>
-            </div>
-
-            <div class="information-container">
-
-                <div class="information">
-                    <a href="">Inicio</a>
-                </div>
-                <div class="information">
-                    <a href="">Plantas</a>
-                </div>
-                <div class="information">
-                    <a href="">Blog</a>
-                </div>
-                <div class="information">
-                    <a href="">Contacto</a>
-                </div>
-
-            </div>
-            <div class="logos-header">
-
-                <div>
-                    <button><img src="imagenes/Logos/gmail.png" alt=""></button>
-                </div>
-                <div>
-                    <button><img src="imagenes/Logos/telefono.png" alt=""></button>
-                </div>
-                <div>
-                    <button><img src="imagenes/Logos/carrito-de-compras.png" alt=""></button>
-                </div>
-                <div>
-                    <button><img src="imagenes/Logos/contacto.png" alt=""></button>
-                </div>
-
-            </div>
-            </div>
         </div>
+        
     </header>
     <main>
+        <div id="shop-card" class="shopCard">
+            <div class="shopCardContent">
+                <h2>Carrito de Compra</h2>
+            <ul>
+                
+                        <table id="lista-carrito" class="listaCarrito">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th>Total</th>
+                                    <th>Accion</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                            <tfoot>
+                                <tr>
+                                    <th colspan="4">TOTAL</th>
+                                    <th id="totalProducts">0$</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                        <button id="vaciar-carrito" class="vaciarCarritoBtn">Vaciar Carrito</button>
+
+                        <button id="comprar-carrito" class="comprarCarritoBtn">Comprar</button>
+                
+            </ul>
+            </div>
+            
+        </div>
+
         <div id="characterContainer" class="container">
         </div>
+
     </main>
     <footer>
-
+        <div id="idFooter" class="footerContainer">
+        </div>
     </footer>
-        
+  
 
 <script src="data.js"></script>
 <script src="main.js"></script>

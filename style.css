@@ -8,7 +8,27 @@ body {
     background-color: #cfcfff;
 }
 
+header {
+    height: 60px;
+    width: 100% ;
+}
+
 .header-container {
+    position: fixed;
+    width: 100%;
+    background-color: #33CC33;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1;
+}
+
+
+
+.content {
+    width: 100%;
     background-color: #33CC33;
     color: white;
     padding: 15px;
@@ -23,6 +43,12 @@ body {
     text-align: center;
     font-weight: bold;
     font-size: 25px;
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .information-container {
@@ -60,14 +86,6 @@ body {
     object-position: center;
 }
 
-
-
-
-
-
-
-
-
 .container {
     width: 70%;
     margin: 0 auto;
@@ -91,7 +109,8 @@ body {
 }
 
 .character-body:hover {
-    transform: scale(1.15);
+    transform: scale(1.05);
+    z-index: 2;
 }
 
 .character-pill .character-body {
@@ -122,6 +141,7 @@ body {
 .character-name {
     font-size: 25px;
     margin-top: 10px;
+    font-weight: bold;
 }
 
 .character-info {
@@ -131,7 +151,6 @@ body {
 
 .character-info-content {
     padding: 3px;
-    font-weight: bold;
 }
 
 .btn-carrito {
@@ -141,8 +160,69 @@ body {
     background-color: #99ff66;
     border-radius: 10px;
     border: none;
+    cursor: pointer;
+
 }
 
-.btn-carrito:hover{
+
+
+.footerContainer {
+    background-color: #33CC33;
+    color: white;
+    text-align: center;
+}
+
+.footerContainer p {
+    padding: 10px;
+}
+
+
+.shopCard {
+    position: fixed;
+    left: -80vw;
+    width: 30%;
+    padding: 10px 20px;
+    background: wheat;
+    top: 70px;
+    transition: left 1s;
+    border-radius: 15px;
+    z-index: 1;
+}
+
+.shopCard.show {
+    left: 15px;
+    
+}
+
+
+.listaCarrito {
+    width: 100%;
+    text-align: left;
+    margin: 10px;
+}
+
+.listaCarrito tfoot {
+    transform: translateY(15px);
+}
+
+.shopCardContent h2 {
+    text-align: center;
+    border-bottom: 4px solid #947f7f;
+}
+
+.shopCardContent button {
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    background-color: #99ff66;
+    border-radius: 10px;
+    border: none;
     cursor: pointer;
+    align-items: end;
+}   
+
+.añadir-quitar-producto {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
 }
