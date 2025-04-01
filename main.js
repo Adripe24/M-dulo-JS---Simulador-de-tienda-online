@@ -14,6 +14,7 @@ let listaCarrito = document.querySelector('#lista-carrito tbody');
 let totalProductsElement = document.querySelector('#totalProducts');
 
 
+
 comprarCarritoBtn?.addEventListener('click', comprarCarrito);
 vaciarCarritoBtn?.addEventListener('click', vaciarCarrito);
 verCarritoBtn?.addEventListener('click', toggleMenu);
@@ -207,7 +208,7 @@ function actualizarCarrito() {
     let total = 0;
 
 
-    for (const productId in carrito) {
+    for (let productId in carrito) {
         if (!carrito.hasOwnProperty(productId)) continue;
 
 
@@ -231,6 +232,9 @@ function actualizarCarrito() {
             <td>${product.precio}$</td>
             <td>${item.cantidad}</td>
             <td>${(product.precio * item.cantidad).toFixed(2)}$</td>
+            <td class="eliminar-producto">
+                <button class="eliminar-producto-btn" data-product-id="${productId}">Eliminar</button>
+            </td>
             <td class="añadir-quitar-producto">
                 <button class="añadir-producto" data-product-id="${productId}">+</button>
                 <button class="quitar-producto" data-product-id="${productId}">-</button>
@@ -240,10 +244,13 @@ function actualizarCarrito() {
 
         let añadirProductoBtn = tr.querySelector('.añadir-producto');
         let quitarProductoBtn = tr.querySelector('.quitar-producto');
+        let eliminarProductoBtn = tr.querySelector('.eliminar-producto-btn');
+
 
 
         añadirProductoBtn?.addEventListener('click', () => añadirProductos(productId));
         quitarProductoBtn?.addEventListener('click', () => quitarEventProductoCarrito(productId));
+        eliminarProductoBtn?.addEventListener('click', () => eliminarProducto(productId));
 
 
         listaCarrito.appendChild(tr);
@@ -263,6 +270,13 @@ function getProduct(productId) {
 function vaciarCarrito() {
  carrito = {};
  actualizarCarrito();
+}
+
+function eliminarProducto(productId) {
+    if (carrito[productId]) {
+        delete carrito[productId];
+        actualizarCarrito();
+    }
 }
 
 
@@ -286,7 +300,7 @@ function comprarCarrito() {
           }).then((result) => {
             if (result.isConfirmed) {
               swalWithBootstrapButtons.fire({
-                title: "Comprado",
+                title: "Compra realizada",
                 text: "Su pedido se ha realizado correctamente.",
                 icon: "success"
               });
