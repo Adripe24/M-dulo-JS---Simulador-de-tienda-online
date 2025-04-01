@@ -1,3 +1,5 @@
+
+
 let carrito = {};
  
 let header = document.querySelector('#headerContainer');
@@ -31,37 +33,37 @@ function renderHeader() {
     header.innerHTML = `
     <div class="content">
     <div class="logo">
-    <a href="#">GreenShop</a>
+        <a href="#">GreenShop</a>
     </div>
     <div class="information-container">
-    <div class="information">
-    <a href="#">Inicio</a>
-    </div>
-    <div class="information">
-    <a href="#">Plantas</a>
-    </div>
-    <div class="information">
-    <a href="#">Blog</a>
-    </div>
-    <div class="information">
-    <a href="#">Contacto</a>
-    </div>
+        <div class="information">
+             <a href="#">Inicio</a>
+        </div>
+        <div class="information">
+            <a href="#">Plantas</a>
+        </div>
+        <div class="information">
+            <a href="#">Blog</a>
+        </div>
+        <div class="information">
+            <a href="#">Contacto</a>
+        </div>
     </div>
     <div class="logos-header">
-    <div>
-    <button><img src="imagenes/Logos/gmail.png" alt="Gmail"></button>
+        <div>
+            <button><img src="imagenes/Logos/gmail.png" alt="Gmail"></button>
+        </div>
+        <div>
+            <button><img src="imagenes/Logos/telefono.png" alt="Teléfono"></button>
+        </div>
+        <div>
+            <button id="verCarrito"><img src="imagenes/Logos/carrito-de-compras.png" alt="Carrito"></button>
+        </div>
+        <div>
+            <button><img src="imagenes/Logos/contacto.png" alt="Contacto"></button>
+        </div>
     </div>
-    <div>
-    <button><img src="imagenes/Logos/telefono.png" alt="Teléfono"></button>
-    </div>
-    <div>
-    <button id="verCarrito"><img src="imagenes/Logos/carrito-de-compras.png" alt="Carrito"></button>
-    </div>
-    <div>
-    <button><img src="imagenes/Logos/contacto.png" alt="Contacto"></button>
-    </div>
-    </div>
-    </div>
+</div>
     `;
 
 
@@ -76,7 +78,7 @@ function renderFooter() {
 
     footer.innerHTML = `
         <div class="spam">
-        <p>@2024 GreenShop - Todos los derechos reservados.</p>
+            <p>@2024 GreenShop - Todos los derechos reservados.</p>
         </div>
         `;
 }
@@ -115,30 +117,29 @@ function createProductPill(producto) {
 
     pill.innerHTML = `
     <div class="character-body">
-    <div class="character-header">
-    <img src="${producto.imagen}" alt="${producto.nombre}">
-    </div>
-    <div class="character-content">
-    <h1 class="character-name">${producto.nombre}</h1>
-    <div class="character-description">
-    <div class="character-info">
-    <p class="character-info-content">${producto.descripcion}</p>
-    </div>
-    <div class="character-info">
-    <p class="character-info-content">Precio: ${producto.precio} $</p>
-    </div>
-    <div class="character-info">
-    <button class="btn-carrito">Agregar al carrito</button>
-    </div>
-    </div>
-    </div>
+        <div class="character-header">
+            <img src="${producto.imagen}" alt="${producto.nombre}">
+        </div>
+        <div class="character-content">
+            <h1 class="character-name">${producto.nombre}</h1>
+            <div class="character-description">
+                <div class="character-info">
+                    <p class="character-info-content">${producto.descripcion}</p>
+                </div>
+                <div class="character-info">
+                    <p class="character-info-content">Precio: ${producto.precio} $</p>
+                </div>
+                <div class="character-info">
+                    <button class="btn-carrito">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
     </div>
     `;
 
 
     let addBtn = pill.querySelector('.btn-carrito');
     addBtn?.addEventListener('click', () => añadirProductos(producto.id));
-
 
     return pill;
 }
@@ -147,9 +148,12 @@ function createProductPill(producto) {
 function añadirProductos(productId) {
     let producto = getProduct(productId);
 
-
     if (!producto) {
-        alert('Producto no encontrado');
+        Swal.fire({
+            icon: "error",
+            title: "Noo...",
+            text: "¡No encuentro el producto!",
+          });
         return;
     }
 
@@ -163,7 +167,11 @@ function añadirProductos(productId) {
 
 
     if (carrito[productId].cantidad + 1 > producto.stock) {
-        alert('No queda stock');
+        Swal.fire({
+            icon: "error",
+            title: "Noo...",
+            text: "¡No quedan más en stock!",
+          });
         return;
     }
 
@@ -208,21 +216,25 @@ function actualizarCarrito() {
 
 
         if (!product) {
-            alert('Hubo un error desconocido');
+            Swal.fire({
+                icon: "error",
+                title: "Oh Ohhh",
+                text: "Hubo un error desconocido",
+              });
             return;
         }
 
 
         let tr = document.createElement('tr');
         tr.innerHTML = `
-        <td>${product.nombre}</td>
-        <td>${product.precio}$</td>
-        <td>${item.cantidad}</td>
-        <td>${(product.precio * item.cantidad).toFixed(2)}$</td>
-        <td class="añadir-quitar-producto">
-        <button class="añadir-producto" data-product-id="${productId}">+</button>
-        <button class="quitar-producto" data-product-id="${productId}">-</button>
-        </td>
+            <td>${product.nombre}</td>
+            <td>${product.precio}$</td>
+            <td>${item.cantidad}</td>
+            <td>${(product.precio * item.cantidad).toFixed(2)}$</td>
+            <td class="añadir-quitar-producto">
+                <button class="añadir-producto" data-product-id="${productId}">+</button>
+                <button class="quitar-producto" data-product-id="${productId}">-</button>
+            </td>
         `;
 
 
@@ -256,10 +268,45 @@ function vaciarCarrito() {
 
 function comprarCarrito() {
     if (Object.keys(carrito).length > 0) {
-        alert('Compra Realizada con éxito');
+        let swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+              confirmButton: "btn btn-success",
+              cancelButton: "btn btn-danger"
+            },
+            buttonsStyling: false
+          });
+          swalWithBootstrapButtons.fire({
+            title: "¿Seguro que quieres comprar?",
+            text: "Todavia puedes cancelarlo",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Si, comprar",
+            cancelButtonText: "No, cancelar",
+            reverseButtons: true
+          }).then((result) => {
+            if (result.isConfirmed) {
+              swalWithBootstrapButtons.fire({
+                title: "Comprado",
+                text: "Su pedido se ha realizado correctamente.",
+                icon: "success"
+              });
+            } else if (
+              result.dismiss === Swal.DismissReason.cancel
+            ) {
+              swalWithBootstrapButtons.fire({
+                title: "Cancelado",
+                text: "Su pedido ha sido cancelado.",
+                icon: "success"
+              });
+            }
+          });
         vaciarCarrito();
  } else {
-    alert('Añade productos');
+    Swal.fire({
+        icon: "error",
+        title: "Oh ohhh...",
+        text: "No hay nada en el carrito!",
+      });
     }
 }
 
