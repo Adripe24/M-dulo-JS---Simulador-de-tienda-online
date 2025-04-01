@@ -1,5 +1,5 @@
 const productos = [
-  { id: 1, nombre: "Rosa", imagen: "imagenes/rosa.png", descripcion: "Hermosa rosa roja, ideal para regalar.", precio: 15, stock: 2 },
+  { id: 1, nombre: "Rosa", imagen: "imagenes/rosa.png", descripcion: "Hermosa rosa roja, ideal para regalar.", precio: 15, stock: 12 },
 
   { id: 2, nombre: "Lirio", imagen: "imagenes/lirio.png", descripcion: "Elegante lirio blanco, perfecto para decorar.", precio: 20, stock: 10 },
 
